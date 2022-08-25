@@ -15,7 +15,7 @@ def list():
 
 @app.route("/usage.log")
 def home():
-    return "\n".join(logs)
+    return "<br>".join(logs)
 
 
 
