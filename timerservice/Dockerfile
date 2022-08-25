@@ -4,7 +4,6 @@ FROM python:3.8-slim-buster
 
 WORKDIR /python-docker
 
-COPY . .
+COPY ./timerservice .
 RUN pip3 install -r requirements.txt
-
 CMD [ "python3", "-m" , "flask", "--app", "timerservice.py", "run", "--host=0.0.0.0"]
