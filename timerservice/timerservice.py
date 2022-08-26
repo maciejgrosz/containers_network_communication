@@ -1,21 +1,17 @@
-from flask import Flask, request
+from flask import Flask
 from datetime import datetime
 import requests
 import time
 
 
 app = Flask(__name__)
-url = "http://172.18.0.3:5000/"
 log_url = "http://172.18.0.3:5000/list"
-test = {"somekey": "somevalue"}
 
 
 @app.route("/", methods=["GET"])
 def home():
     now = datetime.now()
     message = f'Today is: {now.strftime("%m/%d/%Y, %H:%M:%S")}'
-    test = {"somekey": "somevalue"}
-    # r = requests.get(log_url)
     r = requests.post(log_url, data=message)
     return f"{message}"
 
